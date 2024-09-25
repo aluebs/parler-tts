@@ -1,7 +1,7 @@
 {
-    "model_name_or_path": "./parler-tts-untrained-600M/parler-tts-untrained-600M/",
-    "save_to_disk":  "./tmp_dataset_audio/",
-    "temporary_save_to_disk": "./audio_code_tmp/",
+    "model_name_or_path": "/data/aluebs/parlertts/parler-tts-untrained-600M/parler-tts-untrained-600M/",
+    "save_to_disk":  "/data/aluebs/parlertts/tmp_dataset_audio/",
+    "temporary_save_to_disk": "/data/aluebs/parlertts/audio_code_tmp/",
     "wandb_project": "parler-tts-50k-hours",
     "wandb_run_name": "Mini",
 
@@ -10,18 +10,18 @@
     "prompt_tokenizer_name":"google/flan-t5-large",
 
     "report_to": ["wandb"],
-    "overwrite_output_dir": true,
-    "output_dir": "./output_dir_training",
+    "overwrite_output_dir": false,
+    "output_dir": "/data/aluebs/parlertts/output_dir_training",
 
-    "train_dataset_name": "ylacombe/libritts_r_filtered+ylacombe/libritts_r_filtered+ylacombe/libritts_r_filtered+parler-tts/mls_eng",
-    "train_metadata_dataset_name": "ylacombe/libritts-r-filtered-descriptions-10k-v5-without-accents+ylacombe/libritts-r-filtered-descriptions-10k-v5-without-accents+ylacombe/libritts-r-filtered-descriptions-10k-v5-without-accents+ylacombe/mls-eng-descriptions-v4",
-    "train_dataset_config_name": "clean+clean+other+default",
-    "train_split_name": "train.clean.360+train.clean.100+train.other.500+train",
+    "train_dataset_name": "ylacombe/libritts_r_filtered+ylacombe/libritts_r_filtered+ylacombe/libritts_r_filtered",
+    "train_metadata_dataset_name": "ylacombe/libritts-r-filtered-descriptions-10k-v5-without-accents+ylacombe/libritts-r-filtered-descriptions-10k-v5-without-accents+ylacombe/libritts-r-filtered-descriptions-10k-v5-without-accents",
+    "train_dataset_config_name": "clean+clean+other",
+    "train_split_name": "train.clean.360+train.clean.100+train.other.500",
 
-    "eval_dataset_name": "ylacombe/libritts_r_filtered+parler-tts/mls_eng",
-    "eval_metadata_dataset_name": "ylacombe/libritts-r-filtered-descriptions-10k-v5-without-accents+ylacombe/mls-eng-descriptions-v4",
-    "eval_dataset_config_name": "other+default",
-    "eval_split_name": "test.other+test",
+    "eval_dataset_name": "ylacombe/libritts_r_filtered",
+    "eval_metadata_dataset_name": "ylacombe/libritts-r-filtered-descriptions-10k-v5-without-accents",
+    "eval_dataset_config_name": "other",
+    "eval_split_name": "test.other",
 
     "target_audio_column_name": "audio", 
     "description_column_name": "text_description",
@@ -41,10 +41,10 @@
     "preprocessing_num_workers": 8,
 
     "do_train": true,
-    "num_train_epochs": 4,
-    "gradient_accumulation_steps": 4,
+    "num_train_epochs": 40,
+    "gradient_accumulation_steps": 24,
     "gradient_checkpointing": false,
-    "per_device_train_batch_size": 6,
+    "per_device_train_batch_size": 1,
     "learning_rate": 0.00095,
     "adam_beta1": 0.9,
     "adam_beta2": 0.99,
@@ -65,9 +65,9 @@
     "eval_steps": 10000,
     "save_steps": 10000,
 
-    "per_device_eval_batch_size": 4,
+    "per_device_eval_batch_size": 1,
 
-    "audio_encoder_per_device_batch_size":24,
+    "audio_encoder_per_device_batch_size":8,
     "dtype": "bfloat16",
     "seed": 456,
 

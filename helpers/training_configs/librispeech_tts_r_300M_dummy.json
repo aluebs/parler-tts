@@ -1,16 +1,15 @@
 {
-    "model_name_or_path": "./parler-tts-untrained-600M/parler-tts-untrained-600M/",
-    "save_to_disk":  "./tmp_dataset_audio/",
-    "temporary_save_to_disk": "./audio_code_tmp/",
-
+    "model_name_or_path": "./parler-tts-untrained-dummy/tiny-model/",
+    "save_to_disk":  "/data/aluebs/parlertts/tmp_dataset_audio/",
+    "temporary_save_to_disk": "/data/aluebs/parlertts/audio_code_tmp/",
 
     "feature_extractor_name":"ylacombe/dac_44khZ_8kbps",
-    "description_tokenizer_name":"google/flan-t5-base",
-    "prompt_tokenizer_name":"google/flan-t5-base",
+    "description_tokenizer_name":"google/flan-t5-small",
+    "prompt_tokenizer_name":"google/flan-t5-small",
 
     "report_to": ["wandb"],
     "overwrite_output_dir": true,
-    "output_dir": "./output_dir_training",
+    "output_dir": "/data/aluebs/parlertts/output_dir_training",
 
     "train_dataset_name": "blabble-io/libritts_r",
     "train_metadata_dataset_name": "parler-tts/libritts_r_tags_tagged_10k_generated",
@@ -64,7 +63,7 @@
 
     "per_device_eval_batch_size": 12,
 
-    "audio_encoder_per_device_batch_size":24,
+    "audio_encoder_per_device_batch_size": 12,
     "dtype": "bfloat16",
     "seed": 456,
 
